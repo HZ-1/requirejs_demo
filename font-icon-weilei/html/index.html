@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!--此为字体样式字体样式-->
+    <!--<link rel="stylesheet" href="../css/font.css">-->
+    <link rel="stylesheet" href="../css/index.css">
+    <script src="../lib/require.js"></script>
+    <script src="../js/main.js"></script>
+</head>
+<!--
+原理：
+<a href="javascript:;" class="toolbar-item toolbar-item-weixin">
+        <span class="toolbar-btn"></span>
+    </a>
+
+//a 的after就是二维码，二维码作为背景图片展示
+//span 的before是图标
+//span 的after是文字
+给span定义一个宽高度，作为父级，从而让它的伪类超出就overflow:hidden
+todo 本篇相对于前面的亮点是，将font.css整合到index.css中，
+其实整合的方法就是讲font.css分拆到index.css中
+-->
+
+<!--todo 总结：
+使用图片作为图标的形式，后期难以维护，不推荐；
+而使用字体图标来做图标，后期改变图标时不用改变大小等等，维护方便，推荐
+而使用字体图标来做图标：使用定位方式，html相对复杂些，css简洁些；使用伪类方式，html简洁些，但相对复杂些
+-->
+<body>
+
+<div class="toolbar">
+    <a href="javascript:;" class="toolbar-item toolbar-item-weixin">
+        <span class="toolbar-btn"></span>
+    </a>
+    <a href="javascript:;" class="toolbar-item toolbar-item-feedback">
+        <span class="toolbar-btn"></span>
+    </a>
+    <a href="javascript:;" class="toolbar-item toolbar-item-app">
+        <span class="toolbar-btn"></span>
+    </a>
+    <a id="backTop" href="javascript:;" class="toolbar-item toolbar-item-top">
+        <span class="toolbar-btn"></span>
+    </a>
+</div>
+<p>111111</p>
+<p>111112</p>
+<p>111113</p>
+<p>111114</p>
+<p>111115</p>
+<p>111116</p>
+<p>111117</p>
+<p>111118</p>
+<p>111119</p>
+<p>111110</p>
+<p>111121</p>
+<p>1111122</p>
+<p>1111123</p>
+<p>1111124</p>
+<p>1111125</p>
+<p>1111126</p>
+<p>1111127</p>
+<p>1111128</p>
+<p>1111129</p>
+<p>1111130</p>
+<p>1111131</p>
+<p>1111132</p>
+<p>1111133</p>
+<p>1111134</p>
+<p>1111135</p>
+<p>11111</p>
+<p>11111</p>
+<p>11111</p>
+<p>11111</p>
+<p>11111</p>
+<p>11111</p>
+<p>11111</p>
+<p>11111</p>
+<p>11111</p>
+<p>11111</p>
+<p>11111</p>
+<p>11111</p>
+<p>11111</p>
+<p>11111</p>
+<p>11111</p>
+<p>11111</p>
+<p>11111</p>
+<p>11111</p>
+<p>11111</p>
+<p>11111</p>
+<p>11111</p>
+<p>11111</p>
+<p>11111</p>
+<p>11111</p>
+<p>11111</p>
+<p>11111</p>
+<p>11111</p>
+<p>11111</p>
+<p>11111</p>
+<p>11111</p>
+<p>11111</p>
+<p>11111</p>
+<p>11111</p>
+<p>11111</p>
+<p>11111</p>
+<p>11111</p>
+<p>11111</p>
+</body>
+</html>

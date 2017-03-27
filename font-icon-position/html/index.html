@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!--此为字体样式字体样式-->
+    <link rel="stylesheet" href="../css/font.css">
+    <link rel="stylesheet" href="../css/index.css">
+</head>
+<!--
+字体样式使用方法：
+在这个地址选择想要的字体：https://icomoon.io/app/#/select
+具体用法，请看有道笔记本中的 缓存笔记 的 笔记11
+-->
+
+<!--
+本例使用到了scss(也就是sass)的
+定义函数方法：@mixin @include
+定义变量：$
+引用scss：@import
+-->
+<!--
+  opacity: 1;
+  filter: alpha(opacity=100);
+  这二者都是透明度的写法，几乎所有浏览器都支持opacity，但有时候低版本的ie可能不兼容，因此使用filter备用来做兼容
+-->
+<!--
+todo 字体的使用：
+调节字体高度，请用line-light；
+调节字体大小，请用font-size；
+
+-->
+
+<!--
+使用字体实现滚动的原理：
+定义一个a连接，定义52高度，和52宽度
+在a中嵌入一个span，做一个定位；
+在span中嵌入字体图标和文字
+分别给字体图标absolute定位，top为0可以正常显示；
+给文字absolute定位，top为52px，从而被外部span标签遮住，看不见；
+
+浮动时，通过改变前者top为-52px，被遮住，改变后者top为0，被显示出来
+
+todo 注意的是，为了达到父级元素能遮住子元素的效果，给父级元素定义overflow: hidden;很关键，这里也算是一个妙用
+-->
+
+
+<body>
+
+<div class="toolbar">
+    <a href="javascript:;" class="toolbar-item">
+        <span class="toolbar-btn">
+            <!--icon-bubble2是字体的class，在font.scss中有，下同-->
+            <i class="toolbar-icon icon-bubble2"></i>
+            <span class="toolbar-text">公众<br />账号</span>
+        </span>
+        <span class="toolbar-layer toolbar-layer-weixin"></span>
+    </a>
+    <a href="javascript:;" class="toolbar-item">
+        <span class="toolbar-btn">
+            <i class="toolbar-icon icon-weixin"></i>
+            <span class="toolbar-text">意见<br />反馈</span>
+        </span>
+    </a>
+    <a href="javascript:;" class="toolbar-item">
+        <span class="toolbar-btn">
+            <i class="toolbar-icon icon-mobile"></i>
+            <span class="toolbar-text">APP<br />下载</span>
+        </span>
+        <span class="toolbar-layer toolbar-layer-app"></span>
+    </a>
+    <a href="javascript:;" class="toolbar-item">
+        <span class="toolbar-btn">
+            <i class="toolbar-icon icon-arrow-up2"></i>
+            <span class="toolbar-text">返回<br />顶部</span>
+        </span>
+    </a>
+</div>
+</body>
+</html>

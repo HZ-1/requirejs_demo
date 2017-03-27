@@ -1,0 +1,166 @@
+@charset "UTF-8";
+
+//字体引用
+@font-face {
+  font-family: 'icomoon';
+  src:  url('fonts/icomoon.eot?4g162s');
+  src:  url('fonts/icomoon.eot?4g162s#iefix') format('embedded-opentype'),
+  url('fonts/icomoon.ttf?4g162s') format('truetype'),
+  url('fonts/icomoon.woff?4g162s') format('woff'),
+  url('fonts/icomoon.svg?4g162s#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+//toolbar-item 的after就是二维码
+//toolbar-btn 的before是图标
+//toolbar-btn 的after是文字
+@import "public";
+$toolbar-size: 52px;
+.toolbar{
+  position: fixed;
+  left: 50%;
+  bottom: 5px;
+  margin-left:  -$toolbar-size / 2;
+}
+.toolbar-item{
+  position: relative;
+  display: block;
+  width: $toolbar-size;
+  height: $toolbar-size;
+  margin-top: 1px;
+  &:hover{
+    .toolbar-btn{
+      &:before{
+        top: -$toolbar-size;
+      }
+      &:after{
+        top: 0;
+      }
+    }
+    &:after{
+      @include  opacity(1);
+      @include  scale(1);
+    }
+  }
+  &:after{
+    content: "";
+    position: absolute;
+    right: $toolbar-size - 6;
+    bottom: -10px;
+    width: 172px;
+
+    @include  opacity(0);
+    @include  transform-origin(95% 95%);
+    @include  scale(0.01);
+    @include  transition(all 1s);
+  }
+}
+.toolbar-item-weixin{
+  &:after{
+    content: "";
+    height: 212px;
+    background-position: 0 0;
+    background-image: url(../img/bar_code.png);
+    background-repeat: no-repeat;
+  }
+  .toolbar-btn{
+    &:before{
+      content: "\e603";
+    }
+    &:after{
+      content: "公众\A账号";
+    }
+  }
+}
+.toolbar-item-feedback{
+  .toolbar-btn{
+    &:before{
+      content: "\e900";
+    }
+    &:after{
+      content: "意见\A反馈";
+    }
+  }
+}
+.toolbar-item-app{
+  &:after{
+    content: "";
+    height: 194px;
+    background-position: 0 0;
+    background-image: url(../img/bar_code2.png);
+    background-repeat: no-repeat;
+  }
+  .toolbar-btn{
+    &:before{
+      content: "\e958";
+    }
+    &:after{
+      content: "APP下载";
+    }
+  }
+}
+.toolbar-item-top{
+  .toolbar-btn{
+    &:before{
+      content: "\ea3a";
+    }
+    &:after{
+      content: "返回\A顶部";
+    }
+  }
+}
+
+.toolbar-btn{
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: $toolbar-size;
+  height: $toolbar-size;
+  overflow: hidden;
+/*下面是对字体的引用*/
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'icomoon' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /*Better font rendering =====*/
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  &:before{ //icon
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width:$toolbar-size;
+    height:$toolbar-size;
+    background-color: #d0d6d9;
+    font-size: 30px;
+    color: #fff;
+    text-align: center;
+    line-height: $toolbar-size;
+    @include transition(top 1s);
+  }
+  &:after{ //text
+    content: "";
+    position: absolute;
+    left: 0;
+    top:$toolbar-size;
+
+    width:$toolbar-size;
+    height:$toolbar-size;
+    background-color: #98a1a6;
+    font-size: 12px;
+    color: #fff;
+    text-align: center;
+    line-height: 1.2;
+    padding-top: 12px;
+    @include transition(top 1s);
+    white-space: pre;
+  }
+
+}
